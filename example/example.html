@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Summernote - Upload Image</title>
+
+  <!-- include jquery -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+  <!-- include libraries BS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/umd/popper.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js"></script>
+
+  <!-- include summernote -->
+  <link rel="stylesheet" href="../summernote/summernote-bs4.css">
+  <script type="text/javascript" src="../summernote/summernote-bs4.js"></script>
+  <!-- include plugin -->
+  <script type="text/javascript">var SUMMERNOTE_UPLOAD = '../dist/api/index.php';</script>
+  <link rel="stylesheet" href="../dist/summernote-ext-picture-upload.css">
+  <script type="text/javascript" src="../dist/summernote-ext-picture-upload.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      $('.summernote').summernote({
+          toolbar:[
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['fontname', ['fontname']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link']],
+              ['view', ['codeview', 'help']],
+              ['custom',['picture-upload']]
+          ],
+          height: 200
+      });
+
+      $('form').on('submit', function (e) {
+        e.preventDefault();
+        alert($('.summernote').summernote('code'));
+      });
+    });
+  </script>
+</head>
+<body>
+<div class="container">
+  <h1>Summernote using Plugin Upload Image</h1>
+  <div class="card">
+    <div class="card-header">
+      Textarea
+    </div>
+    <div class="card-body">
+      <form action="#" novalidate>
+
+        <div class="form-group">
+          <label for="contents">Contents</label>
+          <textarea name="text" class="summernote" id="contents" title="Contents"></textarea>
+        </div>
+        <input type="submit" class="btn btn-success" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
